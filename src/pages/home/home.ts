@@ -12,6 +12,7 @@ export class HomePage {
   @ViewChild('canvas') canvasEl: ElementRef;
   @ViewChildren('line',{read:ElementRef}) linesRef;
   
+  screenWidth : any;
 
   image2: any;
   canvas: any;
@@ -27,7 +28,7 @@ export class HomePage {
   shiftRXE;
   
   constructor(public navCtrl: NavController, private plt: Platform) {
-    
+    this.screenWidth = window.screen.width;
   }
 
   ionViewDidLoad(){
@@ -161,7 +162,7 @@ export class HomePage {
    
   }
   startMoveClusterX(ev){
-    
+     console.log("START MOVE LINE RED")
     
     let leftLine = this.linesArr[4].nativeElement;
     let rightLine = this.linesArr[6].nativeElement;
@@ -219,6 +220,7 @@ export class HomePage {
 
 
   startMoveX(ev){
+   /* console.log("starMoveX")
     let leftLine = this.linesArr[4].nativeElement;
     let rightLine = this.linesArr[6].nativeElement;
     let middleLine = this.linesArr[5].nativeElement;
@@ -244,42 +246,49 @@ export class HomePage {
         this.shiftRX = ev.touches[0].clientX - rightLine.getBoundingClientRect().left;
         this.moveXAt(ev.targetTouches[0].pageX,ev,leftLine);
       }
-        */
+        
        this.moveXAt(ev.targetTouches[0].pageX,ev,leftLine);
+  }*/
+
+  console.log("START MOVE LINE BLACK")
+
+    let leftLine = this.linesArr[4].nativeElement;
+    let rightLine = this.linesArr[6].nativeElement;
+    let middleLine = this.linesArr[5].nativeElement;
+
+    if (ev.touches.length == 1) {
+      
+      this.shiftX = ev.touches[0].clientX - middleLine.getBoundingClientRect().left;
+      this.shiftLX = ev.touches[0].clientX - leftLine.getBoundingClientRect().left;
+      this.shiftRX = ev.touches[0].clientX - rightLine.getBoundingClientRect().left;
+      console.log(this.shiftLX)
+      console.log(this.shiftX)
+      console.log(this.shiftRX)
+      //this.moveXClusterAt(ev.targetTouches[0].pageX,ev);
     }
     
   }
 
   moveXAt(pageX,ev, otherLine){
-    //let leftLine = this.linesArr[4].nativeElement;
+
+    let leftLine = this.linesArr[4].nativeElement;
     let rightLine = this.linesArr[6].nativeElement;
     let middleLine = this.linesArr[5].nativeElement;
-    
-   
-    let transLX = (pageX + this.shiftLX)+'px';
-    let transRX = (pageX - this.shiftRX )+'px' ;
-    console.log(transRX)
-    ev.target.style.left = transRX;
-    rightLine.style.left = transRX
-    //otherLine.style.left = transLX;
-    /*
-    if(ev.target == leftLine){
-      transLX =(pageX - this.shiftLX)+'px';
-      transRX = (pageX - this.shiftRX)*-1+'px';
 
-      ev.target.style.left = transLX;
-      otherLine.style.left = transRX;
-    }
-    else if(ev.target == rightLine){
-      transLX =(pageX - this.shiftLX)*-1+'px';
-      transRX = (pageX - this.shiftRX)+'px';
+    let between = rightLine.getBoundingClientRect().left - middleLine.getBoundingClientRect().left;
+    let middlePosition = middleLine.getBoundingClientRect().left;
+    
+    console.log("BEETWEN RED AND BLACK"+between);
 
-      ev.target.style.left = transRX;
-      otherLine.style.left = transLX;
+    if(ev.touches){
+
+      let transLX = (middlePosition-between)+'px';
+      let transRX = (pageX - this.shiftRX)+'px';
+      
+      leftLine.style.left = transLX;
+      rightLine.style.left = transRX;
     }
-    
-    */
-    
+
   }
 
   moveX(ev){
@@ -300,7 +309,65 @@ export class HomePage {
       }*/
   }
    
-  
+
+  startMoveXLeft(ev){
+
+    let leftLine = this.linesArr[4].nativeElement;
+    let rightLine = this.linesArr[6].nativeElement;
+    let middleLine = this.linesArr[5].nativeElement;
+
+    if (ev.touches.length == 1) {
+      
+      this.shiftX = ev.touches[0].clientX - middleLine.getBoundingClientRect().left;
+      this.shiftLX = ev.touches[0].clientX - leftLine.getBoundingClientRect().left;
+      this.shiftRX = ev.touches[0].clientX - rightLine.getBoundingClientRect().left;
+      console.log(this.shiftLX)
+      console.log(this.shiftX)
+      console.log(this.shiftRX)
+      //this.moveXClusterAt(ev.targetTouches[0].pageX,ev);
+    }
+
+  }
+
+  moveXLeft(ev){
+    //let leftLine = this.linesArr[4].nativeElement;
+    this.moveXAtLeft(ev.targetTouches[0].pageX, ev);
+    /*
+    let leftLine = this.linesArr[4].nativeElement;
+    let rightLine = this.linesArr[6].nativeElement;
+    console.log('move')
+      if (ev.touches.length == 1) {
+        if(ev.target == leftLine){
+          this.moveXAt(ev.targetTouches[0].pageX, ev,rightLine);
+        }
+        else if(ev.target == rightLine){
+          this.moveXAt(ev.targetTouches[0].pageX, ev,leftLine);
+        }
+        
+      }*/
+  }
+
+  moveXAtLeft(pageX,ev){
+    let leftLine = this.linesArr[4].nativeElement;
+    let rightLine = this.linesArr[6].nativeElement;
+    let middleLine = this.linesArr[5].nativeElement;
+
+    let between = middleLine.getBoundingClientRect().left - leftLine.getBoundingClientRect().left ;
+    let middlePosition = middleLine.getBoundingClientRect().left;
+
+    console.log("BEETWEN RED AND BLACK"+between);
+
+    if(ev.touches){
+
+      let transLX = (pageX - this.shiftLX)+'px';
+      let transRX = (middlePosition+between)+'px';
+      
+      
+      leftLine.style.left = transLX;
+      rightLine.style.left = transRX;
+    }
+
+  }
 
 
 

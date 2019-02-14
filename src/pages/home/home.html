@@ -28,7 +28,7 @@
     <div #line class="mrg-ver" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" (touchend)="end()">
         <div class="long-line" ></div>
     </div>
-    <div #line class="mrg-hor" (touchend)="end()">
+    <div #line class="mrg-hor" (touchstart)="startMoveXLeft($event)" (touchmove)="moveXLeft($event)" (touchend)="end()">
         <div class="short-line" ></div>
     </div>
     <div #line class="mrg-hor" (touchstart)="startMoveClusterX($event)" (touchmove)="moveClusterX($event)" (touchend)="end()">
