@@ -1,0 +1,51 @@
+<ion-content class="no-scroll" no-bounce>
+  
+
+ <!-- <ion-grid class="bottom">
+    <ion-row>
+      <ion-col>
+        <button ion-button block large outline icon-only >
+          <ion-icon name="camera"></ion-icon>Save
+        </button>
+        <button ion-button block large outline icon-only>
+          <ion-icon name="image"></ion-icon>Back
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+
+
+  <div class="line-grid">
+    <div #line class="mrg-ver" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" (touchend)="end()">
+        <div class="long-line"  ></div>
+    </div>
+    <div #line class="mrg-ver" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" (touchend)="end()">
+        <div class="long-line white-line" ></div>
+    </div>
+    <div #line class="mrg-ver" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" (touchend)="end()">
+        <div class="long-line" ></div>
+    </div>
+    <div #line class="mrg-ver" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" (touchend)="end()">
+        <div class="long-line" ></div>
+    </div>
+    <div #line class="mrg-hor" (touchend)="end()">
+        <div class="short-line" ></div>
+    </div>
+    <div #line class="mrg-hor" (touchstart)="startMoveClusterX($event)" (touchmove)="moveClusterX($event)" (touchend)="end()">
+      <div class="short-line red-line" ></div>
+    </div>
+    <div  #line class="mrg-hor" (touchstart)="startMoveX($event)" (touchmove)="moveX($event)" (touchend)="end()">
+      <div class="short-line" ></div>
+    </div>
+    
+  </div>
+<!--  <div class="line-grid">
+    <div #line class="long-line" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)" ></div>
+    <div #line class="long-line white-line" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)"></div>
+    <div #line class="long-line" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)"></div>
+    <div #line class="long-line" (touchstart)="startMoveY($event)" (touchmove)="moveY($event)"></div>
+    <div #line class="short-line" ></div>
+    <div #line class="short-line red-line" (touchstart)="startMoveClusterX($event)" (touchmove)="moveClusterX($event)" (tap)="t($event)"></div>
+    <div #line class="short-line" ></div>
+  </div>-->
+</ion-content>

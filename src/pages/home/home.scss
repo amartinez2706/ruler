@@ -1,0 +1,100 @@
+page-home {
+    .bg-image{
+      
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    .no-scroll .scroll-content{
+        overflow: hidden;
+        margin-bottom: 0px;
+        padding: 0;
+    }
+    .fix{
+        position:absolute;
+        height: 100%;
+        width: 100%;
+    }
+    canvas{
+        position: absolute;
+        z-index: -1;
+        
+    }
+    .bottom{
+        position: fixed;
+        bottom: 4px;
+        z-index: 4;
+       float: left;
+        
+    }
+    
+
+    .line-grid div:nth-child(1){
+       // left: 20%;
+       top:20%;
+       
+      }
+    .line-grid div:nth-child(2){
+         // left: 40%;
+         top:40%;
+        }
+    .line-grid div:nth-child(3){
+         // left: 60%;
+         top:60%;
+        }
+    .line-grid div:nth-child(4){
+         // left: 80%;
+         top:80%;
+        }
+    .line-grid div:nth-child(5){
+         // top: 35%;
+         left: 35%;
+        }
+    .line-grid div:nth-child(6){
+          //top: 50%;
+          left: 50%;
+        }
+    .line-grid div:nth-child(7){
+         // top: 65%;
+         left: 65%;
+        }
+    .long-line{
+      width: 100%;
+      height: .3em;
+      position: sticky;
+      z-index: 3;
+      top: -20%;
+      background-color: black;  
+      }
+    .short-line{
+      width: .3em;
+      height: 100%;
+      position: sticky;
+      z-index: 3;
+      background-color: black;
+      }
+      .mrg-hor{
+        padding: 0 1.5%;
+        height: 100%;
+        position: absolute;
+        z-index: 2;
+        
+      }
+      .mrg-ver{
+        padding: 2.8% 0 2.8% 0;
+        width: 100%;
+        height: .3em;
+        position: absolute;
+        z-index: 2;
+      }
+    .white-line{
+          background-color: blue;
+      }
+    .red-line{
+          background-color: red ;
+          
+          
+      }
+    
+}
